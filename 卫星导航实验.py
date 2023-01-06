@@ -29,46 +29,6 @@ def Ek(M, e):
             break
     return E
 
-# # cal2jd 将公历年月日时分秒转换到简化儒略日。
-# def cal2mjd(calendar):
-#     # 输入公历时间列表，返回儒略日
-#     if len(calendar) < 6:
-#         for i in range(len(calendar), 6):
-#             calendar.append(0)
-#     year = calendar[0]
-#     month = calendar[1]
-#     day = calendar[2] + (calendar[3] * 3600 + calendar[4] * 60 + calendar[5]) / 86400
-#     y = year + 4800
-#     m = month
-#     if year < 0:
-#         print('Year is wrong')
-#         return False
-#     if m <= 2:
-#         # 1，2月视为前一年13，14月
-#         m = m + 12
-#         y = y - 1
-#     e = math.floor(30.6 * (m + 1))
-#     a = math.floor(y / 100)
-#     # 教皇格雷戈里十三世于1582年2月24日以教皇训令颁布，将1582年10月5日至14抹掉。1582年10月4日过完后第二天是10月15日
-#     if (year < 1582) or (year == 1582 and month < 10) or (year == 1582 and month == 10 and day < 15):
-#         b = -38
-#     else:
-#         b = math.floor((a / 4) - a)
-#     c = math.floor(365.25 * y)
-#     jd = b + c + e + day - 32167.5
-#     mjd = jd - 2400000.5
-#     return mjd
-#
-# # cal2gps 将公历GPS时间转换到GPS周和周内的秒
-# def cal2gps(calendar):
-#     # cal2gps 将公历GPS时间转换到GPS周和周内的秒
-#     mjd = cal2mjd(calendar)
-#     # GPS时从1980年，MJD44244开始
-#     e = mjd - 44244
-#     week = math.floor(e / 7)    #周数
-#     e = e - week * 7
-#     return [week, round(e * 86400)]  # 返回列表，周和周内秒
-
 # 0、读取N文件
 def Read_N_file(path):
     with open(path, 'r') as f:  # 制度方式打开N文件
