@@ -149,7 +149,7 @@ site_12 = Read_N_file("D:\\Data\\卫星导航数据\\测点12\\测点12\\2022120
 coordinate_3 = position(site_3)  # 站3观测卫星坐标计算结果
 coordinate_12 = position(site_12)   # 站12观测卫星坐标计算结果
 print('测站3观测：')
-for i in range(5):
+for i in range(7):
     print(site_3[i]['PRN号'],coordinate_3[i])
 print('测站12 观测：')
 for i in range(7):
