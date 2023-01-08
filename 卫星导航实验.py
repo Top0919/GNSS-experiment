@@ -148,6 +148,13 @@ site_3 = Read_N_file("D:\\Data\\卫星导航数据\\测点3\\20221201\\rinex\\32
 site_12 = Read_N_file("D:\\Data\\卫星导航数据\\测点12\\测点12\\20221201\\rinex\\3291472335I.22N")  # 测站12 N文件
 coordinate_3 = position(site_3)  # 站3观测卫星坐标计算结果
 coordinate_12 = position(site_12)   # 站12观测卫星坐标计算结果
+print('测站3观测：')
+for i in range(5):
+    print(site_3[i]['PRN号'],coordinate_3[i])
+print('测站12 观测：')
+for i in range(7):
+    print(site_12[i]['PRN号'],coordinate_12[i])
+
 
 # 2、伪距单点定位
 # 观测文件初始接收机坐标
@@ -243,10 +250,11 @@ x12 = site12_result[0] + Bx0    # 测站12坐标
 y12 = site12_result[1] + By0
 z12 = site12_result[2] + Bz0
 Delta_t = [site3_result[3], site12_result[3]]   # 接收机钟差
-length_true = 137.9468  # 以CGO2软件计算结果作为真值
+length_true = 137.9468  # 以CGO2软件计算结果作为真值 
 print('测站3', 'x:', x3, 'y:', y3, 'z:', z3)
 print('测站12', x12, y12, z12)
 print('测站3接收机钟差:', Delta_t[0], '测站12接收机钟差：', Delta_t[1])
 distance = math.dist((x3, y3, z3), (x12, y12, z12))     # 基线长为测站3与测站12欧式距离
 print('基线解算：', distance, 'm')   # 基线结算结果
 print('软件计算结果:', length_true, '\n差值为：', format(abs(distance - length_true), '.5f'), 'm')  # 小数保留5位有效数字
+
